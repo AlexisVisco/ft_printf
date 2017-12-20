@@ -6,7 +6,7 @@
 /*   By: aviscogl <aviscogl@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2017/12/20 10:02:28 by aviscogl     #+#   ##    ##    #+#       */
-/*   Updated: 2017/12/20 19:23:48 by aviscogl    ###    #+. /#+    ###.fr     */
+/*   Updated: 2017/12/20 22:10:48 by aviscogl    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -50,16 +50,18 @@ static void	extract_params(t_formatter *fmt, char *full)
 
 static void	extract_it(t_list *lst, char **s)
 {
-	t_formatter	*fmt;
+	t_formatter	fmt;
 	char		*str;
 	char		*full_fmt;
 	int			inc;
 	
 	str = *s;
 	fmt = new_formater();
-	inc = extract_full(fmt, *s);
-	full_fmt = fmt->full_formatter;
-	extract_params(fmt, full_fmt);
+	inc = extract_full(&fmt, *s);
+	ft_printf("%s\n", fmt.full_formatter);
+	fflush(stdout);
+	full_fmt = fmt.full_formatter;
+	extract_params(&fmt, full_fmt);
 	print_fmt(fmt);
 	*s += inc;
 }

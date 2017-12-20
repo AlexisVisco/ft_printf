@@ -6,7 +6,7 @@
 /*   By: aviscogl <aviscogl@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2017/12/20 09:32:20 by aviscogl     #+#   ##    ##    #+#       */
-/*   Updated: 2017/12/20 18:39:15 by aviscogl    ###    #+. /#+    ###.fr     */
+/*   Updated: 2017/12/20 22:09:39 by aviscogl    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -46,9 +46,9 @@ int				extract_full(t_formatter *fmt, char *s);
 void    		extract_width(t_formatter *fmt, char **str);
 t_list			*extract_formatter(char *str);
 
-t_formatter		*new_formater();
+t_formatter		new_formater();
 
 char			*ft_strcat_ch(char *dest, const char c);
 
-void			print_fmt(t_formatter *t);
+void			print_fmt(t_formatter t);
 #endif
