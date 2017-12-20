@@ -6,7 +6,7 @@
 /*   By: aviscogl <aviscogl@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2017/12/20 09:32:20 by aviscogl     #+#   ##    ##    #+#       */
-/*   Updated: 2017/12/20 15:33:15 by aviscogl    ###    #+. /#+    ###.fr     */
+/*   Updated: 2017/12/20 18:39:15 by aviscogl    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -23,7 +23,6 @@
 # define BEFORE_C_S "#0-+ hljz.123456789"
 # define FLAGS "#0-+ "
 # define LENGTH "hljz"
-# define D_LENGTHS "hl"
 # define SYMBOL '%'
 
 typedef struct	s_formatter
@@ -36,6 +35,8 @@ typedef struct	s_formatter
 	char		*full_formatter;
 	char		non_spec_arg;
 	int32_t		index;
+	int32_t		index_replace_end;
+	char		*to_replace;
 }				t_formatter;
 
 void			extract_flags(t_formatter *fmt, char **str);
@@ -47,4 +48,7 @@ t_list			*extract_formatter(char *str);
 
 t_formatter		*new_formater();
 
+char			*ft_strcat_ch(char *dest, const char c);
+
+void			print_fmt(t_formatter *t);
 #endif

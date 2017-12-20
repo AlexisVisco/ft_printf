@@ -11,7 +11,9 @@ parser/extract_precision.c \
 parser/extract_width.c \
 parser/extracter.c \
 \
-util/ft_strcat_ch.c
+util/ft_strcat_ch.c \
+\
+debugger/print_fmt.c
 
 
 PROJECT = ft_printf
@@ -23,7 +25,7 @@ SRC_PATH = ./src/
 INC_PATH = ./includes/
 LIBFT_INCLUDES_PATH = ./libft/includes/
 OBJ_PATH = ./obj/
-OBJ_PATHS = main parser initer util
+OBJ_PATHS = main parser initer util debugger
 LIBFT_PATH = ./libft
 
 OBJ_SUB_PATHS = $(addprefix $(OBJ_PATH),$(OBJ_PATHS))
@@ -42,16 +44,16 @@ $(OBJ_PATH)%.o: $(SRC_PATH)%.c
 	$(CC) $(CFLAGS) $(INC) -I $(LIBFT_INCLUDES_PATH) -o $@ -c $<
 
 $(NAME): $(OBJ)
-	make make_libft
+	@make make_libft
 	$(CC) -L$(LIBFT_PATH) -l$(LIBFT_BIN_NAME) $^ -o $(NAME)
 
 clean:
-	rm -rf $(OBJ_PATH)
+	@rm -rf $(OBJ_PATH)
 	@make -C libft/ clean
 
 fclean: clean
-	rm -rf $(NAME)
-	make -C libft/ fclean
+	@rm -rf $(NAME)
+	@make -C libft/ fclean
 
 re: fclean all
 

@@ -6,16 +6,15 @@
 /*   By: aviscogl <aviscogl@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2017/12/20 09:31:31 by aviscogl     #+#   ##    ##    #+#       */
-/*   Updated: 2017/12/20 15:37:43 by aviscogl    ###    #+. /#+    ###.fr     */
+/*   Updated: 2017/12/20 19:37:02 by aviscogl    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "ft_printf.h"
 #include <stdio.h>
 
 int		main(void)
 {
-	printf("% bdwdew", 45);
-	
+	extract_formatter("%hhls");
 }
