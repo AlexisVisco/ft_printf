@@ -2,18 +2,27 @@
 C_FILES = \
 main/main.c \
 \
+converter/c_intmax.c \
+converter/c_uintmax.c \
+\
 initer/new_formatter.c \
+\
+evaluator/core.c \
+evaluator/evaluator.c \
 \
 parser/extract_flags.c \
 parser/extract_full.c \
 parser/extract_length.c \
 parser/extract_precision.c \
 parser/extract_width.c \
-parser/extracter.c \
+parser/extractor.c \
 \
 util/ft_strcat_ch.c \
+util/ft_strrep_first_aft.c \
 \
-debugger/print_fmt.c
+debugger/print_fmt.c \
+\
+printf.c
 
 
 PROJECT = ft_printf
@@ -25,7 +34,9 @@ SRC_PATH = ./src/
 INC_PATH = ./includes/
 LIBFT_INCLUDES_PATH = ./libft/includes/
 OBJ_PATH = ./obj/
-OBJ_PATHS = main parser initer util debugger
+OBJ_PATHS = main parser initer util debugger converter evaluator \
+evaluator/eval_base evaluator/eval_char evaluator/eval_number \
+evaluator/eval_pointer evaluator/eval_string
 LIBFT_PATH = ./libft
 
 OBJ_SUB_PATHS = $(addprefix $(OBJ_PATH),$(OBJ_PATHS))
