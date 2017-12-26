@@ -1,27 +1,29 @@
 /* ************************************************************************** */
 /*                                                          LE - /            */
 /*                                                              /             */
-/*   main.c                                           .::    .:/ .      .::   */
+/*   get_char.c                                       .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
 /*   By: aviscogl <aviscogl@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
-/*   Created: 2017/12/20 09:31:31 by aviscogl     #+#   ##    ##    #+#       */
-/*   Updated: 2017/12/26 20:04:09 by aviscogl    ###    #+. /#+    ###.fr     */
+/*   Created: 2017/12/26 19:40:35 by aviscogl     #+#   ##    ##    #+#       */
+/*   Updated: 2017/12/26 20:01:57 by aviscogl    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-#include <locale.h>
-#include <stdio.h>
 
-
-
-
-
-int		main(void)
+void	get_char(t_formatter *t, va_list lst)
 {
-	setlocale(LC_CTYPE, "");
-	pf(    "test %C\n", L'é');
-	printf("test %C\n", L'é');
+	char	arg;
+	char	*str;
+
+	if (ft_strchr(t->length, 'l') || t->type == 'C')
+		return (get_wchar(t, lst));
+	arg = va_arg(lst, int);
+	free(t->to_replace);
+	str = (char *)malloc(sizeof(char) * 2);
+	str[1] = 0;
+	str[0] = arg;
+	t->to_replace = str;
 }

@@ -6,26 +6,30 @@
 /*   By: aviscogl <aviscogl@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2017/12/21 20:18:01 by aviscogl     #+#   ##    ##    #+#       */
-/*   Updated: 2017/12/23 19:52:53 by aviscogl    ###    #+. /#+    ###.fr     */
+/*   Updated: 2017/12/26 20:02:19 by aviscogl    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	evaluator(char **str, t_formatter *fmt, va_list lst)
+void evaluate(char **str, void (*fn)(), t_formatter *fmt, va_list lst)
 {
-	char	*to_free;
-	char	*tmp;
+	char *to_free;
+	char *tmp;
+	to_free = *str;
+	fn(fmt, lst);
+	tmp = ft_strrep_first_aft(fmt->full_formatter, fmt->to_replace, *str, fmt->index);
+	fflush(stdout);
+	fmt->index_replace_end = fmt->index + ft_strlen(fmt->to_replace);
+	free(to_free);
+	str[0] = tmp;
+}
 
-	if (fmt->type == 's' || fmt->type == 'S')
-	{
-		to_free = *str;
-		get_string(fmt, lst);
-		tmp = ft_strrep_first_aft(fmt->full_formatter, fmt->to_replace, *str, fmt->index);
-		fflush(stdout);
-		fmt->index_replace_end = fmt->index + ft_strlen(fmt->to_replace);
-		free(to_free);
-		str[0] = tmp;
-	}
+void evaluator(char **str, t_formatter *fmt, va_list lst)
+{
+	if (ft_strchr(STR_S, fmt->type))
+		evaluate(str, get_string, fmt, lst);
+	else if (ft_strchr(CHAR_S, fmt->type))
+		evaluate(str, get_char, fmt, lst);
 }

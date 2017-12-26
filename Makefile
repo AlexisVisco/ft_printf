@@ -14,6 +14,8 @@ evaluator/eval_string/compute/str_precision.c \
 evaluator/eval_string/compute/wstr_precision.c \
 evaluator/eval_string/get_string.c \
 evaluator/eval_string/get_wstring.c \
+evaluator/eval_char/get_char.c \
+evaluator/eval_char/get_wchar.c \
 evaluator/core.c \
 evaluator/evaluator.c \
 evaluator/dynamic_value.c \

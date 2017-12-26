@@ -1,27 +1,29 @@
 /* ************************************************************************** */
 /*                                                          LE - /            */
 /*                                                              /             */
-/*   main.c                                           .::    .:/ .      .::   */
+/*   get_wchar.c                                      .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
 /*   By: aviscogl <aviscogl@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
-/*   Created: 2017/12/20 09:31:31 by aviscogl     #+#   ##    ##    #+#       */
-/*   Updated: 2017/12/26 20:04:09 by aviscogl    ###    #+. /#+    ###.fr     */
+/*   Created: 2017/12/26 19:44:15 by aviscogl     #+#   ##    ##    #+#       */
+/*   Updated: 2017/12/26 19:46:37 by aviscogl    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-#include <locale.h>
-#include <stdio.h>
 
-
-
-
-
-int		main(void)
+void	get_wchar(t_formatter *t, va_list lst)
 {
-	setlocale(LC_CTYPE, "");
-	pf(    "test %C\n", L'é');
-	printf("test %C\n", L'é');
+	wchar_t	arg;
+	int32_t	len;
+	char	*str;
+
+	arg = va_arg(lst, wchar_t);
+	free(t->to_replace);
+	len = ft_wcharlen(arg);
+	str = (char *)malloc(sizeof(char) * (len + 1));
+	str[len] = 0;
+	ft_wchar_in_str(arg, str, 0);
+	t->to_replace = str;
 }

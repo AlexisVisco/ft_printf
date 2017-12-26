@@ -6,7 +6,7 @@
 /*   By: aviscogl <aviscogl@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2017/12/20 09:32:20 by aviscogl     #+#   ##    ##    #+#       */
-/*   Updated: 2017/12/26 11:49:13 by aviscogl    ###    #+. /#+    ###.fr     */
+/*   Updated: 2017/12/26 20:00:16 by aviscogl    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -55,8 +55,11 @@ void			str_compute(t_formatter *t);
 void			str_precision(t_formatter *t);
 void			wstr_precision(wchar_t **w, t_formatter *t);
 void			str_padding(t_formatter *t);
+
 void			get_string(t_formatter *t, va_list lst);
-void			get_wstring(t_formatter *c, va_list lst);
+void			get_wstring(t_formatter *t, va_list lst);
+void			get_char(t_formatter *t, va_list lst);
+void			get_wchar(t_formatter *t, va_list lst);
 
 void			evaluator_core(char **str, va_list lst);
 void			evaluator(char **str, t_formatter *fmt, va_list lst);
