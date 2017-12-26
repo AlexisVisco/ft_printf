@@ -1,31 +1,22 @@
 /* ************************************************************************** */
 /*                                                          LE - /            */
 /*                                                              /             */
-/*   extractor.c                                      .::    .:/ .      .::   */
+/*   wstr_precision.c                                 .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
 /*   By: aviscogl <aviscogl@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
-/*   Created: 2017/12/21 20:20:55 by aviscogl     #+#   ##    ##    #+#       */
-/*   Updated: 2017/12/25 11:22:00 by aviscogl    ###    #+. /#+    ###.fr     */
+/*   Created: 2017/12/26 11:15:44 by aviscogl     #+#   ##    ##    #+#       */
+/*   Updated: 2017/12/26 11:17:47 by aviscogl    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	extract_params(t_formatter *fmt, char *full)
+void	wstr_precision(wchar_t **w, t_formatter *t)
 {
-	while (*full)
-	{
-		if (ft_strchr(FLAGS, *full))
-			extract_flags(fmt, &full);
-		else if (ft_isdigit(*full) || *full == '*')
-			extract_width(fmt, &full);
-		else if (*full == '.')
-			extract_precision(fmt, &full);
-		else if (ft_strchr(LENGTH, *full))
-			extract_length(fmt, &full);
-		else
-			full++;
-	}
+	wchar_t *tmp;
+
+	tmp = ft_wstrsubpf(*w, t->precision);
+	*w = tmp;
 }

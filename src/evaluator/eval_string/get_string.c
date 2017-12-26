@@ -1,31 +1,30 @@
 /* ************************************************************************** */
 /*                                                          LE - /            */
 /*                                                              /             */
-/*   extractor.c                                      .::    .:/ .      .::   */
+/*   get_string.c                                     .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
 /*   By: aviscogl <aviscogl@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
-/*   Created: 2017/12/21 20:20:55 by aviscogl     #+#   ##    ##    #+#       */
-/*   Updated: 2017/12/25 11:22:00 by aviscogl    ###    #+. /#+    ###.fr     */
+/*   Created: 2017/12/23 14:45:00 by aviscogl     #+#   ##    ##    #+#       */
+/*   Updated: 2017/12/26 11:57:17 by aviscogl    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	extract_params(t_formatter *fmt, char *full)
+void	get_string(t_formatter *t, va_list lst)
 {
-	while (*full)
-	{
-		if (ft_strchr(FLAGS, *full))
-			extract_flags(fmt, &full);
-		else if (ft_isdigit(*full) || *full == '*')
-			extract_width(fmt, &full);
-		else if (*full == '.')
-			extract_precision(fmt, &full);
-		else if (ft_strchr(LENGTH, *full))
-			extract_length(fmt, &full);
-		else
-			full++;
-	}
+	char *arg;
+
+	if (ft_strstr(t->length, "l") || t->type == 'S')
+		return (get_wstring(t, lst));
+	if (t->precision == -2 || t->width == -2)
+		fill_dyn_val(t, lst);
+	arg = ft_strdup(va_arg(lst, char *));
+	if (!arg)
+		return ;
+	free(t->to_replace);
+	t->to_replace = arg;
+	str_compute(t);
 }

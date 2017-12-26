@@ -6,7 +6,7 @@
 /*   By: aviscogl <aviscogl@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2017/12/20 18:18:38 by aviscogl     #+#   ##    ##    #+#       */
-/*   Updated: 2017/12/20 21:49:28 by aviscogl    ###    #+. /#+    ###.fr     */
+/*   Updated: 2017/12/25 10:34:17 by aviscogl    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -19,6 +19,7 @@ void	print_fmt(t_formatter t)
 	printf("  flags: %s,\n", t.flags);
 	printf("  width: %i,\n", t.width);
 	printf("  precision: %i,\n", t.precision);
+	printf("  is_width_first: %i,\n", t.is_width_first);
 	printf("  length: %s,\n", t.length);
 	printf("  type: %c,\n", t.type);
 	printf("  full_formatter: %s,\n", t.full_formatter);

@@ -6,7 +6,7 @@
 /*   By: aviscogl <aviscogl@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2017/12/20 14:05:20 by aviscogl     #+#   ##    ##    #+#       */
-/*   Updated: 2017/12/20 22:10:30 by aviscogl    ###    #+. /#+    ###.fr     */
+/*   Updated: 2017/12/25 11:22:02 by aviscogl    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -18,6 +18,13 @@ void    extract_width(t_formatter *fmt, char **str)
     char	width[11];
     uint8_t	i;
 
+    if (**str == '*')
+    {
+        fmt->width = -2;
+        fmt->is_width_first = fmt->is_width_first == -1 ? -1 : 1;
+        (*str)++;
+        return ;
+    }
     width[(i = 0)] = 0;
     while (**str && ft_isdigit(**str))
 		  *str += (i < 10 ? !!(width[i++] = **str) : 1);

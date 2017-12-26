@@ -4,11 +4,19 @@ main/main.c \
 \
 converter/c_intmax.c \
 converter/c_uintmax.c \
+converter/c_unicode.c \
 \
-initer/new_formatter.c \
+struct/formatter.c \
 \
+evaluator/eval_string/compute/str_compute.c \
+evaluator/eval_string/compute/str_padding.c \
+evaluator/eval_string/compute/str_precision.c \
+evaluator/eval_string/compute/wstr_precision.c \
+evaluator/eval_string/get_string.c \
+evaluator/eval_string/get_wstring.c \
 evaluator/core.c \
 evaluator/evaluator.c \
+evaluator/dynamic_value.c \
 \
 parser/extract_flags.c \
 parser/extract_full.c \
@@ -17,8 +25,10 @@ parser/extract_precision.c \
 parser/extract_width.c \
 parser/extractor.c \
 \
+util/ft_strappend_at.c \
 util/ft_strcat_ch.c \
 util/ft_strrep_first_aft.c \
+util/unicode.c \
 \
 debugger/print_fmt.c \
 \
@@ -34,9 +44,9 @@ SRC_PATH = ./src/
 INC_PATH = ./includes/
 LIBFT_INCLUDES_PATH = ./libft/includes/
 OBJ_PATH = ./obj/
-OBJ_PATHS = main parser initer util debugger converter evaluator \
+OBJ_PATHS = main parser struct util debugger converter evaluator \
 evaluator/eval_base evaluator/eval_char evaluator/eval_number \
-evaluator/eval_pointer evaluator/eval_string
+evaluator/eval_pointer evaluator/eval_string evaluator/eval_string/compute
 LIBFT_PATH = ./libft
 
 OBJ_SUB_PATHS = $(addprefix $(OBJ_PATH),$(OBJ_PATHS))

@@ -6,7 +6,7 @@
 /*   By: aviscogl <aviscogl@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2017/12/20 09:32:20 by aviscogl     #+#   ##    ##    #+#       */
-/*   Updated: 2017/12/21 21:41:49 by aviscogl    ###    #+. /#+    ###.fr     */
+/*   Updated: 2017/12/26 11:49:13 by aviscogl    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -26,7 +26,7 @@
 # define BASE_S			"oOxX"
 # define NUMBER_S		"dDiuU"
 # define POINTER_S		"p"
-# define BEFORE_C_S		"#0-+ hljz.123456789"
+# define BEFORE_C_S		"#0-+* hljz.123456789"
 # define FLAGS			"#0-+ "
 # define LENGTH			"hljz"
 # define SYMBOL			'%'
@@ -38,6 +38,7 @@ typedef struct	s_formatter
 	char		flags[6];
 	int32_t		width;
 	int32_t		precision;
+	int32_t		is_width_first;
 	char		length[3];
 	char		type;
 	char		*full_formatter;
@@ -50,8 +51,16 @@ typedef struct	s_formatter
 /*
 ** EVALUATOR
 */
+void			str_compute(t_formatter *t);
+void			str_precision(t_formatter *t);
+void			wstr_precision(wchar_t **w, t_formatter *t);
+void			str_padding(t_formatter *t);
+void			get_string(t_formatter *t, va_list lst);
+void			get_wstring(t_formatter *c, va_list lst);
+
 void			evaluator_core(char **str, va_list lst);
 void			evaluator(char **str, t_formatter *fmt, va_list lst);
+void			fill_dyn_val(t_formatter *t, va_list lst);
 
 /*
 ** PARSER
@@ -66,11 +75,18 @@ void			extract_params(t_formatter *fmt, char *full);
 /*
 ** INITER
 */
-t_formatter		new_formater();
+t_formatter		new_formatter();
+void			flush_formatter(t_formatter *t);
 
 /*
 ** UTIL
 */
+int				ft_wcharlen(wchar_t wchar);
+size_t			ft_byte_wstrlen(wchar_t *ws);
+size_t			ft_wstrlen(wchar_t *ws);
+wchar_t			*ft_wstrsubpf(wchar_t *ws, int end);
+char			*ft_strappend_at(int n, char *src, char *add);
+char			*ft_strappend_atc(int n, char *src, char c);
 char			*ft_strcat_ch(char *dest, const char c);
 char			*ft_strrep_first_aft(char *,char *, char *, int);
 
@@ -86,6 +102,8 @@ int16_t			len_intmax(intmax_t v, uint8_t base);
 int16_t			str_intmax(char *dst, intmax_t v, uint8_t base);
 int16_t			len_uintmax(uintmax_t v, uint8_t base);
 int16_t			str_uintmax(char *dst, uintmax_t v, uint8_t base);
+int				ft_wchar_in_str(wchar_t wchar, char *fresh, int i);
+char			*ft_wstr_to_str(wchar_t *ws);
 
 /*
 ** PRINTF
