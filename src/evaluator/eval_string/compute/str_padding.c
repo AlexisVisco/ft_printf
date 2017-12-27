@@ -6,21 +6,12 @@
 /*   By: aviscogl <aviscogl@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2017/12/23 15:11:01 by aviscogl     #+#   ##    ##    #+#       */
-/*   Updated: 2017/12/24 13:39:59 by aviscogl    ###    #+. /#+    ###.fr     */
+/*   Updated: 2017/12/27 11:02:21 by aviscogl    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-
-static void	ft_str_repeat(char **str, char c, int n)
-{
-	int x;
-
-	x = -1;
-	while (++x < n)
-		(*str)[x] = c;
-}
 
 void		str_padding(t_formatter *t)
 {

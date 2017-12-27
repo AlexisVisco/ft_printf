@@ -1,30 +1,40 @@
 /* ************************************************************************** */
 /*                                                          LE - /            */
 /*                                                              /             */
-/*   get_char.c                                       .::    .:/ .      .::   */
+/*   get_base.c                                       .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
 /*   By: aviscogl <aviscogl@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
-/*   Created: 2017/12/26 19:40:35 by aviscogl     #+#   ##    ##    #+#       */
-/*   Updated: 2017/12/27 13:38:17 by aviscogl    ###    #+. /#+    ###.fr     */
+/*   Created: 2017/12/26 20:10:42 by aviscogl     #+#   ##    ##    #+#       */
+/*   Updated: 2017/12/27 12:03:39 by aviscogl    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	get_char(t_formatter *t, va_list lst)
+void	get_hex(t_formatter *t, va_list lst)
 {
-	char	arg;
-	char	*str;
+	uintmax_t	val;
+	char		*str;
 
-	if (ft_strchr(t->length, 'l') || t->type == 'C')
-		return (get_wchar(t, lst));
-	if (t->non_spec_arg == 0)
-		arg = va_arg(lst, int);
+	get_uval(t, &val, lst);
 	free(t->to_replace);
-	str = (char *)malloc(sizeof(char) * 2);
-	str[1] = 0;
-	str[0] = t->non_spec_arg != 0 ? t->non_spec_arg : arg;
+	str = malloc(sizeof(char) * 256);
+	str_uintmax(str, val, 16, t->type == 'X' ? BASE_CAPS : BASE);
 	t->to_replace = str;
+	base_compute(t);
+}
+
+void	get_oct(t_formatter *t, va_list lst)
+{
+	uintmax_t	val;
+	char		*str;
+
+	get_uval(t, &val, lst);
+	free(t->to_replace);
+	str = malloc(sizeof(char) * 256);
+	str_uintmax(str, val, 8, BASE);
+	t->to_replace = str;
+	base_compute(t);
 }

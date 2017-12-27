@@ -1,30 +1,35 @@
 /* ************************************************************************** */
 /*                                                          LE - /            */
 /*                                                              /             */
-/*   get_char.c                                       .::    .:/ .      .::   */
+/*   base_compute.c                                   .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
 /*   By: aviscogl <aviscogl@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
-/*   Created: 2017/12/26 19:40:35 by aviscogl     #+#   ##    ##    #+#       */
-/*   Updated: 2017/12/27 13:38:17 by aviscogl    ###    #+. /#+    ###.fr     */
+/*   Created: 2017/12/27 11:15:54 by aviscogl     #+#   ##    ##    #+#       */
+/*   Updated: 2017/12/27 13:24:42 by aviscogl    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	get_char(t_formatter *t, va_list lst)
-{
-	char	arg;
-	char	*str;
+# define HAS_PRECISION ((t->precision >= 0 && t->precision >\
+ft_strlen(t->to_replace)))
+# define HAS_ZERO ((ft_strchr(t->flags, '0') && !ft_strchr(t->flags, '-')\
+&& !has_prec))
 
-	if (ft_strchr(t->length, 'l') || t->type == 'C')
-		return (get_wchar(t, lst));
-	if (t->non_spec_arg == 0)
-		arg = va_arg(lst, int);
-	free(t->to_replace);
-	str = (char *)malloc(sizeof(char) * 2);
-	str[1] = 0;
-	str[0] = t->non_spec_arg != 0 ? t->non_spec_arg : arg;
-	t->to_replace = str;
+void	base_compute(t_formatter *t)
+{
+	int	has_prec;
+	
+	has_prec = HAS_PRECISION;
+	if (has_prec)
+		number_precision(t);
+	if (ft_strchr(t->flags, '#'))
+		base_hash(t);
+	if (HAS_ZERO)
+		base_zero(t);
+	if ((!HAS_ZERO || ft_strchr(t->flags, '-')))
+		if (t->width > 0 && ft_strlen(t->to_replace) < t->width)
+			str_padding(t);
 }

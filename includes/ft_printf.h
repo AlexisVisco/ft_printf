@@ -6,7 +6,7 @@
 /*   By: aviscogl <aviscogl@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2017/12/20 09:32:20 by aviscogl     #+#   ##    ##    #+#       */
-/*   Updated: 2017/12/26 20:00:16 by aviscogl    ###    #+. /#+    ###.fr     */
+/*   Updated: 2017/12/27 12:03:13 by aviscogl    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -24,6 +24,8 @@
 # define STR_S			"sS"
 # define CHAR_S			"cC"
 # define BASE_S			"oOxX"
+# define BASE_SX		"xX"
+# define BASE_SO		"o"
 # define NUMBER_S		"dDiuU"
 # define POINTER_S		"p"
 # define BEFORE_C_S		"#0-+* hljz.123456789"
@@ -61,6 +63,16 @@ void			get_wstring(t_formatter *t, va_list lst);
 void			get_char(t_formatter *t, va_list lst);
 void			get_wchar(t_formatter *t, va_list lst);
 
+void			base_compute(t_formatter *t);
+void			base_hash(t_formatter *t);
+void			base_zero(t_formatter *t);
+void			get_hex(t_formatter *t, va_list lst);
+void			get_oct(t_formatter *t, va_list lst);
+
+void			get_uval(t_formatter *t, uintmax_t *val, va_list lst);
+void			get_val(t_formatter *t, intmax_t *val, va_list lst);
+void			number_precision(t_formatter *t);
+
 void			evaluator_core(char **str, va_list lst);
 void			evaluator(char **str, t_formatter *fmt, va_list lst);
 void			fill_dyn_val(t_formatter *t, va_list lst);
@@ -84,6 +96,8 @@ void			flush_formatter(t_formatter *t);
 /*
 ** UTIL
 */
+void			ft_str_repeat(char **str, char c, int n);
+char			*ft_str_repeatm(char c, int n);
 int				ft_wcharlen(wchar_t wchar);
 size_t			ft_byte_wstrlen(wchar_t *ws);
 size_t			ft_wstrlen(wchar_t *ws);
@@ -102,9 +116,9 @@ void			print_fmt(t_formatter t);
 ** CONVERTER
 */
 int16_t			len_intmax(intmax_t v, uint8_t base);
-int16_t			str_intmax(char *dst, intmax_t v, uint8_t base);
+int16_t			str_intmax(char *dst, intmax_t v, uint8_t base, const char *digits);
 int16_t			len_uintmax(uintmax_t v, uint8_t base);
-int16_t			str_uintmax(char *dst, uintmax_t v, uint8_t base);
+int16_t			str_uintmax(char *dst, uintmax_t v, uint8_t base, const char *digits);
 int				ft_wchar_in_str(wchar_t wchar, char *fresh, int i);
 char			*ft_wstr_to_str(wchar_t *ws);
 

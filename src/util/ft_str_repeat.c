@@ -1,30 +1,36 @@
 /* ************************************************************************** */
 /*                                                          LE - /            */
 /*                                                              /             */
-/*   get_char.c                                       .::    .:/ .      .::   */
+/*   ft_str_repeat.c                                  .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
 /*   By: aviscogl <aviscogl@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
-/*   Created: 2017/12/26 19:40:35 by aviscogl     #+#   ##    ##    #+#       */
-/*   Updated: 2017/12/27 13:38:17 by aviscogl    ###    #+. /#+    ###.fr     */
+/*   Created: 2017/12/27 11:02:38 by aviscogl     #+#   ##    ##    #+#       */
+/*   Updated: 2017/12/27 11:06:53 by aviscogl    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	get_char(t_formatter *t, va_list lst)
+void	ft_str_repeat(char **str, char c, int n)
 {
-	char	arg;
-	char	*str;
+	int x;
 
-	if (ft_strchr(t->length, 'l') || t->type == 'C')
-		return (get_wchar(t, lst));
-	if (t->non_spec_arg == 0)
-		arg = va_arg(lst, int);
-	free(t->to_replace);
-	str = (char *)malloc(sizeof(char) * 2);
-	str[1] = 0;
-	str[0] = t->non_spec_arg != 0 ? t->non_spec_arg : arg;
-	t->to_replace = str;
+	x = -1;
+	while (++x < n)
+		(*str)[x] = c;
+}
+
+char	*ft_str_repeatm(char c, int n)
+{
+	char	*str;
+	int		x;
+
+	str = malloc(sizeof(char) * (n + 1));
+	str[n] = 0;
+	x = -1;
+	while (++x < n)
+		str[x] = c;
+	return (str);
 }
