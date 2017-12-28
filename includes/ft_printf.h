@@ -6,7 +6,7 @@
 /*   By: aviscogl <aviscogl@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2017/12/20 09:32:20 by aviscogl     #+#   ##    ##    #+#       */
-/*   Updated: 2017/12/28 11:51:59 by aviscogl    ###    #+. /#+    ###.fr     */
+/*   Updated: 2017/12/28 13:32:07 by aviscogl    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -82,6 +82,7 @@ void			number_plus(t_formatter *t);
 void			number_compute(t_formatter *t);
 
 void			get_pointer(t_formatter *t, va_list lst);
+void			pointer_compute(t_formatter *t);
 
 void			evaluator_core(char **str, va_list lst);
 void			evaluator(char **str, t_formatter *fmt, va_list lst);

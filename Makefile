@@ -28,6 +28,8 @@ evaluator/eval_number/compute/number_zero.c \
 evaluator/eval_number/compute/number_space.c \
 evaluator/eval_number/compute/number_plus.c \
 evaluator/eval_number/compute/number_compute.c \
+evaluator/eval_pointer/compute/pointer_compute.c \
+evaluator/eval_pointer/get_pointer.c \
 evaluator/core.c \
 evaluator/evaluator.c \
 evaluator/dynamic_value.c \
@@ -62,7 +64,8 @@ OBJ_PATH = ./obj/
 OBJ_PATHS = main parser struct util debugger converter evaluator \
 evaluator/eval_base evaluator/eval_char evaluator/eval_number \
 evaluator/eval_pointer evaluator/eval_string evaluator/eval_string/compute \
-evaluator/eval_base/compute evaluator/eval_number/compute
+evaluator/eval_base/compute evaluator/eval_number/compute \
+evaluator/eval_pointer/compute
 LIBFT_PATH = ./libft
 
 OBJ_SUB_PATHS = $(addprefix $(OBJ_PATH),$(OBJ_PATHS))

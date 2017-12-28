@@ -6,7 +6,7 @@
 /*   By: aviscogl <aviscogl@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2017/12/21 20:18:01 by aviscogl     #+#   ##    ##    #+#       */
-/*   Updated: 2017/12/28 11:31:01 by aviscogl    ###    #+. /#+    ###.fr     */
+/*   Updated: 2017/12/28 13:33:53 by aviscogl    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -35,13 +35,9 @@ void evaluator(char **str, t_formatter *fmt, va_list lst)
 	else if (ft_strchr(BASE_SX, fmt->type))
 		evaluate(str, get_hex, fmt, lst);
 	else if (ft_strchr(NUMBER_INTS, fmt->type))
-	{
-		printf("1\n");
 		evaluate(str, get_number, fmt, lst);
-	}
 	else if (ft_strchr(NUMBER_UINTS, fmt->type))
-	{
-		printf("2\n");
 		evaluate(str, get_unumber, fmt, lst);
-	}
+	else if (fmt->type == 'p')
+		evaluate(str, get_pointer, fmt, lst);
 }

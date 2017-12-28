@@ -6,7 +6,7 @@
 /*   By: aviscogl <aviscogl@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2017/12/28 11:50:46 by aviscogl     #+#   ##    ##    #+#       */
-/*   Updated: 2017/12/28 12:25:23 by aviscogl    ###    #+. /#+    ###.fr     */
+/*   Updated: 2017/12/28 13:39:28 by aviscogl    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -19,10 +19,11 @@ void	get_pointer(t_formatter *t, va_list lst)
 	char		*str;
 
 	fill_dyn_val(t, lst);
-	va_arg(lst, uintmax_t);
+	pointer = va_arg(lst, uintmax_t);
 	str = malloc(sizeof(char) * 256);
-	str_intmax(str, pointer, 16, BASE);
+	str_uintmax(str, pointer, 16, BASE);
 	free(t->to_replace);
 	t->to_replace = str;
 	base_hash(t);
+	pointer_compute(t);
 }
