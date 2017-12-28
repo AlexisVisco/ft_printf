@@ -22,7 +22,12 @@ evaluator/eval_base/compute/base_zero.c \
 evaluator/eval_base/compute/base_hash.c \
 evaluator/eval_number/get_val.c \
 evaluator/eval_number/get_uval.c \
+evaluator/eval_number/get_number.c \
 evaluator/eval_number/compute/number_precision.c \
+evaluator/eval_number/compute/number_zero.c \
+evaluator/eval_number/compute/number_space.c \
+evaluator/eval_number/compute/number_plus.c \
+evaluator/eval_number/compute/number_compute.c \
 evaluator/core.c \
 evaluator/evaluator.c \
 evaluator/dynamic_value.c \
@@ -88,6 +93,9 @@ fclean: clean
 	@make -C libft/ fclean
 
 re: fclean all
+
+cquery:
+	echo "$(CFLAGS) $(INC) -I $(LIBFT_INCLUDES_PATH)" | perl -pe 's/ -/\n-/g'  > .cquery
 
 download_libft:
 	@git clone https://github.com/AlexisVisco/libft/

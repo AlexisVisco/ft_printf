@@ -6,7 +6,7 @@
 /*   By: aviscogl <aviscogl@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2017/12/26 20:10:42 by aviscogl     #+#   ##    ##    #+#       */
-/*   Updated: 2017/12/27 12:03:39 by aviscogl    ###    #+. /#+    ###.fr     */
+/*   Updated: 2017/12/28 11:06:59 by aviscogl    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -31,6 +31,7 @@ void	get_oct(t_formatter *t, va_list lst)
 	uintmax_t	val;
 	char		*str;
 
+	fill_dyn_val(t, lst);
 	get_uval(t, &val, lst);
 	free(t->to_replace);
 	str = malloc(sizeof(char) * 256);

@@ -1,30 +1,42 @@
 /* ************************************************************************** */
 /*                                                          LE - /            */
 /*                                                              /             */
-/*   number_precision.c                               .::    .:/ .      .::   */
+/*   get_number.c                                     .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
 /*   By: aviscogl <aviscogl@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
-/*   Created: 2017/12/27 11:41:09 by aviscogl     #+#   ##    ##    #+#       */
-/*   Updated: 2017/12/28 11:33:12 by aviscogl    ###    #+. /#+    ###.fr     */
+/*   Created: 2017/12/28 10:05:21 by aviscogl     #+#   ##    ##    #+#       */
+/*   Updated: 2017/12/28 11:31:15 by aviscogl    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	number_precision(t_formatter *t)
+void	get_number(t_formatter *t, va_list lst)
 {
-	char	*str;
-	char	*pad;
-	int		diff;
+	intmax_t	val;
+	char		*str;
 
-	diff = t->precision - ft_strlen(t->to_replace);
-	if (t->to_replace[0] == '-')
-		diff++;
-	pad = ft_str_repeatm('0', diff);
-	str = ft_strappend_at(t->to_replace[0] == '-' ? 1 : 0, t->to_replace, pad);
+	fill_dyn_val(t, lst);
+	get_val(t, &val, lst);
 	free(t->to_replace);
-	free(pad);
+	str = malloc(sizeof(char) * 256);
+	str_intmax(str, val, 10, BASE);
 	t->to_replace = str;
+	number_compute(t);
+}
+
+void	get_unumber(t_formatter *t, va_list lst)
+{
+	uintmax_t	val;
+	char		*str;
+
+	fill_dyn_val(t, lst);
+	get_uval(t, &val, lst);
+	free(t->to_replace);
+	str = malloc(sizeof(char) * 256);
+	str_uintmax(str, val, 10, BASE);
+	t->to_replace = str;
+	number_compute(t);
 }
