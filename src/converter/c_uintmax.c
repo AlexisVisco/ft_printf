@@ -6,7 +6,7 @@
 /*   By: aviscogl <aviscogl@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2017/12/21 09:09:01 by aviscogl     #+#   ##    ##    #+#       */
-/*   Updated: 2018/01/02 13:38:29 by aviscogl    ###    #+. /#+    ###.fr     */
+/*   Updated: 2018/01/02 20:25:29 by aviscogl    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -35,6 +35,10 @@ const char *digits)
 	x = i;
 	dst[x] = 0;
 	x--;
+	if (n == 0) {
+		dst[0] = '0';
+		return 2;
+	}
 	while (n)
 	{
 		dst[x--] = digits[n % base];

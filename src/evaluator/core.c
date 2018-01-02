@@ -6,7 +6,7 @@
 /*   By: aviscogl <aviscogl@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2017/12/20 10:02:28 by aviscogl     #+#   ##    ##    #+#       */
-/*   Updated: 2018/01/02 13:56:05 by aviscogl    ###    #+. /#+    ###.fr     */
+/*   Updated: 2018/01/02 21:49:30 by aviscogl    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -36,7 +36,7 @@ void		evaluator_core(char **str, va_list lst)
 			fmt = new_formatter();
 			call_formatter(str, &i, &fmt);
 			evaluator(str, &fmt, lst);
-			i += fmt.index_replace_end;
+			i = fmt.index_replace_end;
 			flush_formatter(&fmt);
 		}
 		else

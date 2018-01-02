@@ -6,7 +6,7 @@
 /*   By: aviscogl <aviscogl@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2017/12/27 11:15:54 by aviscogl     #+#   ##    ##    #+#       */
-/*   Updated: 2018/01/02 13:30:25 by aviscogl    ###    #+. /#+    ###.fr     */
+/*   Updated: 2018/01/02 21:00:28 by aviscogl    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -23,6 +23,8 @@ void	base_compute(t_formatter *t)
 	int	has_prec;
 
 	has_prec = B_HAS_PRECISION;
+	if (t->precision == 0 && ft_strequ(t->to_replace, "0"))
+		base_delprec_0(t);
 	if (has_prec)
 		number_precision(t);
 	if (ft_strchr(t->flags, '#'))

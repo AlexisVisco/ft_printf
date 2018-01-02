@@ -6,7 +6,7 @@
 /*   By: aviscogl <aviscogl@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2017/12/21 09:09:01 by aviscogl     #+#   ##    ##    #+#       */
-/*   Updated: 2017/12/27 12:02:34 by aviscogl    ###    #+. /#+    ###.fr     */
+/*   Updated: 2018/01/02 20:25:09 by aviscogl    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -37,6 +37,10 @@ int16_t		str_intmax(char *dst, intmax_t n, uint8_t base, const char *digits)
 		dst[x] = '-';
 	x = (n < 0 && base == 10) ? 1 + i : i;
 	dst[x--] = 0;
+	if (n == 0) {
+		dst[0] = '0';
+		return 2;
+	}
 	while (n)
 	{
 		dst[x--] = digits[(n < 0) ? -(n % base) : (n % base)];

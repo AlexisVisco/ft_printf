@@ -17,6 +17,7 @@ evaluator/eval_char/get_wchar.c \
 evaluator/eval_base/get_base.c \
 evaluator/eval_base/compute/base_compute.c \
 evaluator/eval_base/compute/base_zero.c \
+evaluator/eval_base/compute/base_delprec_0.c \
 evaluator/eval_base/compute/base_hash.c \
 evaluator/eval_number/get_val.c \
 evaluator/eval_number/get_uval.c \
@@ -82,8 +83,9 @@ $(OBJ_PATH)%.o: $(SRC_PATH)%.c
 
 $(NAME): $(OBJ)
 	@make make_libft
-	@ar rc $(NAME_LIB) ./libft/libft.a $^
-	# $(CC) -L$(LIBFT_PATH) -l$(LIBFT_BIN_NAME) $^ -o $(NAME)
+	make -C libft
+	cp libft/libft.a ./libftprintf.a
+	ar rcs libftprintf.a $(OBJ)
 
 clean:
 	@rm -rf $(OBJ_PATH)

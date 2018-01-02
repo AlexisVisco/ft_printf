@@ -6,7 +6,7 @@
 /*   By: aviscogl <aviscogl@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2017/12/21 12:43:36 by aviscogl     #+#   ##    ##    #+#       */
-/*   Updated: 2018/01/02 13:20:37 by aviscogl    ###    #+. /#+    ###.fr     */
+/*   Updated: 2018/01/02 19:47:50 by aviscogl    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -96,8 +96,7 @@ char *replace, char *subject, int n)
 			return (NULL);
 		if (index == 0)
 		{
-			str = ft_strsub(subject, ft_strlen(search),
-			ft_strlen(subject) - ft_strlen(search));
+			str = ft_strsub(subject, ft_strlen(search) , (ft_strlen(subject) - ft_strlen(search)));
 			tmp = build_str("", replace, str);
 			free(str);
 			return (tmp);

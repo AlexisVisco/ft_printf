@@ -1,31 +1,24 @@
 /* ************************************************************************** */
 /*                                                          LE - /            */
 /*                                                              /             */
-/*   get_char.c                                       .::    .:/ .      .::   */
+/*   base_delprec_0.c                                 .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
 /*   By: aviscogl <aviscogl@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
-/*   Created: 2017/12/26 19:40:35 by aviscogl     #+#   ##    ##    #+#       */
-/*   Updated: 2018/01/02 20:07:51 by aviscogl    ###    #+. /#+    ###.fr     */
+/*   Created: 2018/01/02 20:45:07 by aviscogl     #+#   ##    ##    #+#       */
+/*   Updated: 2018/01/02 20:49:37 by aviscogl    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	get_char(t_formatter *t, va_list lst)
+void	base_delprec_0(t_formatter *t)
 {
-	char	arg;
-	char	*str;
+	char *str;
 
-	if (ft_strchr(t->length, 'l') || t->type == 'C')
-		return (get_wchar(t, lst));
-	if (t->non_spec_arg == 0)
-		arg = va_arg(lst, int);
 	free(t->to_replace);
-	str = (char *)malloc(sizeof(char) * 2);
-	str[1] = 0;
-	str[0] = t->non_spec_arg != 0 ? t->non_spec_arg : arg;
+	str = malloc(sizeof(char) * 1);
+	str[0] = 0;
 	t->to_replace = str;
-	str_compute(t);
 }

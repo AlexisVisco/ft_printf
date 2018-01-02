@@ -6,7 +6,7 @@
 /*   By: aviscogl <aviscogl@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2017/12/20 09:32:20 by aviscogl     #+#   ##    ##    #+#       */
-/*   Updated: 2018/01/02 13:42:52 by aviscogl    ###    #+. /#+    ###.fr     */
+/*   Updated: 2018/01/02 20:50:43 by aviscogl    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -66,6 +66,7 @@ void			get_char(t_formatter *t, va_list lst);
 void			get_wchar(t_formatter *t, va_list lst);
 
 void			base_compute(t_formatter *t);
+void			base_delprec_0(t_formatter *t);
 void			base_hash(t_formatter *t);
 void			base_zero(t_formatter *t);
 void			get_hex(t_formatter *t, va_list lst);

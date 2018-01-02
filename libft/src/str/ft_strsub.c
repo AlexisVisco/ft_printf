@@ -6,7 +6,7 @@
 /*   By: aviscogl <aviscogl@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2017/11/10 11:17:32 by aviscogl     #+#   ##    ##    #+#       */
-/*   Updated: 2017/11/25 10:52:24 by aviscogl    ###    #+. /#+    ###.fr     */
+/*   Updated: 2018/01/02 19:39:56 by aviscogl    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -16,28 +16,17 @@
 char	*ft_strsub(char const *s, unsigned int start, size_t len)
 {
 	char	*str;
-	size_t	slen;
-	int		i;
-	size_t	newlen;
+	size_t	cur;
 
-	if (!s)
+	str = (char *)malloc(sizeof(*str) * (len + 1));
+	if (str == NULL)
 		return (NULL);
-	slen = ft_strlen(s);
-	if (start > slen || len > slen || len > slen - start)
-		return (NULL);
-	i = start;
-	newlen = -1;
-	while (s[i] && ++newlen < len)
-		i++;
-	if (!(str = malloc(sizeof(char) * (newlen + 1))))
-		return (NULL);
-	str[newlen] = '\0';
-	i = start;
-	newlen = -1;
-	while (++newlen < len)
+	cur = 0;
+	while (cur < len)
 	{
-		str[newlen] = s[i];
-		i++;
+		str[cur] = s[start + cur];
+		cur++;
 	}
+	str[cur] = '\0';
 	return (str);
 }
