@@ -6,7 +6,7 @@
 #    By: aviscogl <aviscogl@student.le-101.fr>      +:+   +:    +:    +:+      #
 #                                                  #+#   #+    #+    #+#       #
 #    Created: 2017/11/17 14:07:28 by aviscogl     #+#   ##    ##    #+#        #
-#    Updated: 2017/12/16 10:16:45 by aviscogl    ###    #+. /#+    ###.fr      #
+#    Updated: 2018/01/02 13:09:28 by aviscogl    ###    #+. /#+    ###.fr      #
 #                                                          /                   #
 #                                                         /                    #
 # **************************************************************************** #
@@ -28,6 +28,8 @@ is/ft_isprint.c \
 \
 lib/ft_atoi.c \
 lib/ft_numstr.c \
+lib/find_in_tab.c \
+lib/size_tab.c \
 \
 lst/lst_add.c \
 lst/lst_get.c \
@@ -78,19 +80,9 @@ mem/ft_memdel.c \
 mem/ft_memmove.c \
 mem/ft_memset.c \
 \
-printf/ft_printf.c \
-printf/print_binary.c \
-printf/print_char.c \
-printf/print_hex.c \
-printf/print_float.c \
-printf/print_nb.c \
-printf/print_unb.c \
-printf/print_str.c \
-printf/print_str_pad.c \
-printf/print_nb_pad.c \
-printf/print_unb_pad.c \
-\
 str/ft_strcat.c \
+str/ft_strdel_at.c \
+str/ft_str_append.c \
 str/ft_strchr.c \
 str/ft_strclr.c \
 str/ft_strcmp.c \

@@ -6,22 +6,22 @@
 /*   By: aviscogl <aviscogl@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2017/12/27 11:15:54 by aviscogl     #+#   ##    ##    #+#       */
-/*   Updated: 2017/12/28 11:10:01 by aviscogl    ###    #+. /#+    ###.fr     */
+/*   Updated: 2018/01/02 13:30:25 by aviscogl    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-# define B_HAS_PRECISION ((t->precision >= 0 && t->precision >\
-ft_strlen(t->to_replace)))
-# define B_HAS_ZERO ((ft_strchr(t->flags, '0') && !ft_strchr(t->flags, '-')\
-&& !has_prec))
+#define B_PRE_CHILD (t->precision >= 0 && t->precision)
+#define B_ZERO_CHILD (ft_strchr(t->flags, '0') && !ft_strchr(t->flags, '-'))
+#define B_HAS_PRECISION ((B_PRE_CHILD > ft_strlen(t->to_replace)))
+#define B_HAS_ZERO ((B_ZERO_CHILD && !has_prec))
 
 void	base_compute(t_formatter *t)
 {
 	int	has_prec;
-	
+
 	has_prec = B_HAS_PRECISION;
 	if (has_prec)
 		number_precision(t);

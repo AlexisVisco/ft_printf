@@ -6,7 +6,7 @@
 /*   By: aviscogl <aviscogl@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2017/11/08 12:44:50 by aviscogl     #+#   ##    ##    #+#       */
-/*   Updated: 2017/12/02 09:53:03 by aviscogl    ###    #+. /#+    ###.fr     */
+/*   Updated: 2018/01/02 12:40:54 by aviscogl    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -25,7 +25,6 @@
 # include "f_lib.h"
 # include "f_lst.h"
 # include "f_math.h"
-# include "f_printf.h"
 # include "f_map.h"
 
 # define SMART(type) __attribute__ ((__cleanup__(free_smart))) type

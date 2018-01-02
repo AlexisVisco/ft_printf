@@ -6,7 +6,7 @@
 /*   By: aviscogl <aviscogl@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2017/12/24 15:12:16 by aviscogl     #+#   ##    ##    #+#       */
-/*   Updated: 2017/12/26 11:58:28 by aviscogl    ###    #+. /#+    ###.fr     */
+/*   Updated: 2018/01/02 13:20:17 by aviscogl    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -45,15 +45,15 @@ size_t		ft_wstrlen(wchar_t *ws)
 	if (!ws)
 		return (0);
 	while (*(ws++))
-		len ++;
+		len++;
 	return (len);
 }
 
-wchar_t	*ft_wstrsubpf(wchar_t *ws, int end)
+wchar_t		*ft_wstrsubpf(wchar_t *ws, int end)
 {
-	wchar_t *new;
-	int i;
-	int count;
+	wchar_t	*new;
+	int		i;
+	int		count;
 
 	if (end < 0)
 		return (NULL);

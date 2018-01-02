@@ -6,7 +6,7 @@
 /*   By: aviscogl <aviscogl@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2017/12/02 09:48:14 by aviscogl     #+#   ##    ##    #+#       */
-/*   Updated: 2017/12/02 17:07:36 by aviscogl    ###    #+. /#+    ###.fr     */
+/*   Updated: 2018/01/02 12:00:35 by aviscogl    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -16,23 +16,23 @@
 # include <stdlib.h>
 # include <stdio.h>
 
-typedef struct              s_entry
+typedef struct				s_entry
 {
-    char 					*key;
-    char 					*value;
-}                           t_entry;
+	char					*key;
+	char					*value;
+}							t_entry;
 
-typedef struct              s_map
+typedef struct				s_map
 {
-    t_list					*lst;
-}                           t_map;
+	t_list					*lst;
+}							t_map;
 
 t_map						*map_new(void);
-void        				map_del(t_map* hashmap);
-void	                    map_print(t_map *map);
-void        				map_set(t_map* hashmap, char *key, char *val);
-t_entry						*map_get(t_map* hashmap, char* key);
-char	                    *map_getv(t_map* map, char* key);
-int                         map_unset(t_map *map, char *key);
+void						map_del(t_map *hashmap);
+void						map_print(t_map *map);
+void						map_set(t_map *hashmap, char *key, char *val);
+t_entry						*map_get(t_map *hashmap, char *key);
+char						*map_getv(t_map *map, char *key);
+int							map_unset(t_map *map, char *key);
 
 #endif

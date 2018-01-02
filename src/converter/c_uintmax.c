@@ -6,7 +6,7 @@
 /*   By: aviscogl <aviscogl@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2017/12/21 09:09:01 by aviscogl     #+#   ##    ##    #+#       */
-/*   Updated: 2017/12/27 12:02:50 by aviscogl    ###    #+. /#+    ###.fr     */
+/*   Updated: 2018/01/02 13:38:29 by aviscogl    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -23,7 +23,8 @@ int16_t		len_uintmax(uintmax_t v, uint8_t base)
 	return (ret);
 }
 
-int16_t		str_uintmax(char *dst, uintmax_t n, uint8_t base, const char *digits)
+int16_t		str_uintmax(char *dst, uintmax_t n, uint8_t base,
+const char *digits)
 {
 	int16_t	i;
 	int16_t	x;
@@ -31,7 +32,8 @@ int16_t		str_uintmax(char *dst, uintmax_t n, uint8_t base, const char *digits)
 	if (base > 36)
 		return (0);
 	i = len_uintmax(n, base);
-	dst[(x = i)] = 0;
+	x = i;
+	dst[x] = 0;
 	x--;
 	while (n)
 	{

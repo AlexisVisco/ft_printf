@@ -6,7 +6,7 @@
 /*   By: aviscogl <aviscogl@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2017/12/20 09:32:20 by aviscogl     #+#   ##    ##    #+#       */
-/*   Updated: 2017/12/28 13:32:07 by aviscogl    ###    #+. /#+    ###.fr     */
+/*   Updated: 2018/01/02 13:42:52 by aviscogl    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -94,8 +94,8 @@ void			fill_dyn_val(t_formatter *t, va_list lst);
 int				extract_full(t_formatter *fmt, char *s);
 void			extract_flags(t_formatter *fmt, char **str);
 void			extract_precision(t_formatter *fmt, char **str);
-void   			extract_length(t_formatter *fmt, char **str);
-void    		extract_width(t_formatter *fmt, char **str);
+void			extract_length(t_formatter *fmt, char **str);
+void			extract_width(t_formatter *fmt, char **str);
 void			extract_params(t_formatter *fmt, char *full);
 
 /*
@@ -116,7 +116,7 @@ wchar_t			*ft_wstrsubpf(wchar_t *ws, int end);
 char			*ft_strappend_at(int n, char *src, char *add);
 char			*ft_strappend_atc(int n, char *src, char c);
 char			*ft_strcat_ch(char *dest, const char c);
-char			*ft_strrep_first_aft(char *,char *, char *, int);
+char			*ft_strrep_first_aft(char *a,char *b, char *c, int d);
 
 /*
 ** DEBUGGER
@@ -127,16 +127,18 @@ void			print_fmt(t_formatter t);
 ** CONVERTER
 */
 int16_t			len_intmax(intmax_t v, uint8_t base);
-int16_t			str_intmax(char *dst, intmax_t v, uint8_t base, const char *digits);
+int16_t			str_intmax(char *dst, intmax_t v, uint8_t base,
+const char *digits);
 int16_t			len_uintmax(uintmax_t v, uint8_t base);
-int16_t			str_uintmax(char *dst, uintmax_t v, uint8_t base, const char *digits);
+int16_t			str_uintmax(char *dst, uintmax_t v, uint8_t base,
+const char *digits);
 int				ft_wchar_in_str(wchar_t wchar, char *fresh, int i);
 char			*ft_wstr_to_str(wchar_t *ws);
 
 /*
 ** PRINTF
 */
-int				fpf(int fd, const char *format, ...);
-int				pf(const char *format, ...);
+int				ft_dprintf(int fd, const char *format, ...);
+int				ft_printf(const char *format, ...);
 
 #endif

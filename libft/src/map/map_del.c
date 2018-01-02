@@ -6,7 +6,7 @@
 /*   By: aviscogl <aviscogl@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2017/12/02 13:53:36 by aviscogl     #+#   ##    ##    #+#       */
-/*   Updated: 2017/12/16 09:53:43 by aviscogl    ###    #+. /#+    ###.fr     */
+/*   Updated: 2018/01/02 12:55:09 by aviscogl    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -16,7 +16,7 @@
 static void		del(void *c, size_t s)
 {
 	t_entry	*tmp;
-	
+
 	tmp = (t_entry *)c;
 	free(tmp->key);
 	free(tmp->value);
@@ -25,12 +25,12 @@ static void		del(void *c, size_t s)
 		;
 }
 
-void			map_del(t_map* map)
+void			map_del(t_map *map)
 {
 	t_list	*lst;
-	
+
 	if (map && map->lst)
-    {
+	{
 		lst = map->lst;
 		lst_delete(&lst, del);
 		map->lst = NULL;

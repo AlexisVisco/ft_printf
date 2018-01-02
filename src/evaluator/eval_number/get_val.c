@@ -6,14 +6,14 @@
 /*   By: aviscogl <aviscogl@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2017/12/27 10:41:46 by aviscogl     #+#   ##    ##    #+#       */
-/*   Updated: 2017/12/28 11:25:44 by aviscogl    ###    #+. /#+    ###.fr     */
+/*   Updated: 2018/01/02 13:34:07 by aviscogl    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void get_val(t_formatter *t, intmax_t *val, va_list lst)
+void	get_val(t_formatter *t, intmax_t *val, va_list lst)
 {
 	if (ft_strequ(t->length, "l") || t->type == 'D' || t->type == 'O')
 		*val = (intmax_t)va_arg(lst, long);

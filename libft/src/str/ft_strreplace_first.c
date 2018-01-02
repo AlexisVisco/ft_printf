@@ -6,7 +6,7 @@
 /*   By: aviscogl <aviscogl@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2017/11/13 14:34:40 by aviscogl     #+#   ##    ##    #+#       */
-/*   Updated: 2017/12/20 09:51:30 by aviscogl    ###    #+. /#+    ###.fr     */
+/*   Updated: 2017/11/25 10:52:07 by aviscogl    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -55,35 +55,13 @@ static int		strstr_i(const char *str, const char *query)
 
 static char		*build_str(char *first, char *mid, char *last)
 {
-	char *tmp;
-	char *ret;
-
-	tmp = ft_strjoin(first, mid);
-	ret = ft_strjoin(tmp, last);
-	free(tmp);
-	return (ret);
-}
-
-static char			*magic_hapn(int index, char *subject, char *search, char *replace)
-{
-	char *tmp_1;
-	char *tmp_2;
-	char *ret;
-
-	tmp_1 = ft_strsub(subject, 0, index);
-	tmp_2 = ft_strsub(subject, index + ft_strlen(search),
-			ft_strlen(subject) - (index + ft_strlen(search)));
-	ret = build_str(tmp_1, replace, tmp_2);
-	free(tmp_1);
-	free(tmp_2);
-	return (ret);
+	return (ft_strjoin(ft_strjoin(first, mid), last));
 }
 
 char			*ft_strreplace_first(char *search, char *replace, char *subject)
 {
 	int		index;
 	char	*str;
-	char	*tmp;
 
 	if (!search || !replace || !subject)
 		return (NULL);
@@ -94,12 +72,12 @@ char			*ft_strreplace_first(char *search, char *replace, char *subject)
 		{
 			str = ft_strsub(subject, ft_strlen(search),
 			ft_strlen(subject) - ft_strlen(search));
-			tmp = build_str("", replace, str);
-			free(str);
-			return (tmp);
+			return (build_str("", replace, str));
 		}
 		else
-			return (magic_hapn(index, subject, search, replace));
+			return (build_str(ft_strsub(subject, 0, index), replace,
+			ft_strsub(subject, index + ft_strlen(search),
+			ft_strlen(subject) - (index + ft_strlen(search)))));
 	}
 	return (subject);
 }

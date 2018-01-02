@@ -6,7 +6,7 @@
 /*   By: aviscogl <aviscogl@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2017/12/10 17:55:55 by aviscogl     #+#   ##    ##    #+#       */
-/*   Updated: 2017/12/10 17:58:13 by aviscogl    ###    #+. /#+    ###.fr     */
+/*   Updated: 2018/01/02 12:47:12 by aviscogl    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -15,5 +15,5 @@
 
 int		ft_strends_with(const char *s, char c)
 {
-	return (s[ft_strlen(s)-1] == c);
+	return (s[ft_strlen(s) - 1] == c);
 }

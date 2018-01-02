@@ -6,7 +6,7 @@
 /*   By: aviscogl <aviscogl@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2017/12/21 12:43:36 by aviscogl     #+#   ##    ##    #+#       */
-/*   Updated: 2017/12/23 19:52:25 by aviscogl    ###    #+. /#+    ###.fr     */
+/*   Updated: 2018/01/02 13:20:37 by aviscogl    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -64,7 +64,8 @@ static char		*build_str(char *first, char *mid, char *last)
 	return (ret);
 }
 
-static char			*magic_hapn(int index, char *subject, char *search, char *replace)
+static char		*magic_hapn(int index, char *subject, char *search,
+char *replace)
 {
 	char *tmp_1;
 	char *tmp_2;
@@ -79,7 +80,7 @@ static char			*magic_hapn(int index, char *subject, char *search, char *replace)
 	return (ret);
 }
 
-char				*ft_strrep_first_aft(char *search,
+char			*ft_strrep_first_aft(char *search,
 char *replace, char *subject, int n)
 {
 	int		index;

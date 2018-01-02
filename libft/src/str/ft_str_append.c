@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                          LE - /            */
 /*                                                              /             */
-/*   ft_strappend_at.c                                .::    .:/ .      .::   */
+/*   ft_str_append.c                                  .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
 /*   By: aviscogl <aviscogl@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2017/12/12 18:37:40 by aviscogl     #+#   ##    ##    #+#       */
-/*   Updated: 2017/12/23 14:58:21 by aviscogl    ###    #+. /#+    ###.fr     */
+/*   Updated: 2018/01/02 13:15:04 by aviscogl    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
 char	*ft_strappend_at(int n, char *src, char *add)
 {
@@ -23,7 +23,7 @@ char	*ft_strappend_at(int n, char *src, char *add)
 	new = (char *)malloc(sizeof(char) * (size + 1));
 	new[size] = 0;
 	i = -1;
-	while (++i < size)
+	while ((size_t)(++i) < size)
 	{
 		if (i == n)
 		{
@@ -47,7 +47,7 @@ char	*ft_strappend_atc(int n, char *src, char c)
 	new = (char *)malloc(sizeof(char) * (size + 1));
 	new[size] = 0;
 	i = -1;
-	while (++i < size)
+	while ((size_t)(++i) < size)
 	{
 		if (i == n)
 			new[i] = c;

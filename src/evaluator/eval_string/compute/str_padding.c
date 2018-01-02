@@ -6,19 +6,19 @@
 /*   By: aviscogl <aviscogl@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2017/12/23 15:11:01 by aviscogl     #+#   ##    ##    #+#       */
-/*   Updated: 2017/12/27 11:02:21 by aviscogl    ###    #+. /#+    ###.fr     */
+/*   Updated: 2018/01/02 13:36:42 by aviscogl    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void		str_padding(t_formatter *t)
+void	str_padding(t_formatter *t)
 {
-	int	is_left;
-	int diff;
-	char *to_add;
-	char *ret;
+	int		is_left;
+	int		diff;
+	char	*to_add;
+	char	*ret;
 
 	is_left = ft_strchr(t->flags, '-') != NULL;
 	diff = t->width - ft_strlen(t->to_replace);

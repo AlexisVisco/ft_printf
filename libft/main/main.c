@@ -1,25 +1,20 @@
 /* ************************************************************************** */
 /*                                                          LE - /            */
 /*                                                              /             */
-/*   print_unb.c                                      .::    .:/ .      .::   */
+/*   main.c                                           .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
-/*   By: aviscogl <aviscogl@student.le-101.fr>      +:+   +:    +:    +:+     */
+/*   By: alexis <alexis@student.le-101.fr>          +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
-/*   Created: 2017/11/24 20:16:41 by alexis       #+#   ##    ##    #+#       */
-/*   Updated: 2017/12/09 18:08:01 by aviscogl    ###    #+. /#+    ###.fr     */
+/*   Created: 2017/11/24 21:54:19 by alexis       #+#   ##    ##    #+#       */
+/*   Updated: 2017/11/25 10:38:53 by alexis      ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
-#include <stdarg.h>
-#include <libft.h>
+#include "libft.h"
 
-int		print_unb(int fd, char *p, va_list list)
+int		main()
 {
-	if ((*++p) == 'u')
-	{
-		ft_putunum_fd(fd, va_arg(list, uint64_t), 10);
-		return (1);
-	}
-	return (0);
+	ft_printf("78326432 en hex: %X\n", 78326432);
+	ft_printf("78326432 en bin: %b\n", 78326432);
 }

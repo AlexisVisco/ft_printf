@@ -1,25 +1,25 @@
 /* ************************************************************************** */
 /*                                                          LE - /            */
 /*                                                              /             */
-/*   print_str.c                                      .::    .:/ .      .::   */
+/*   find_in_tab.c                                    .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
 /*   By: aviscogl <aviscogl@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
-/*   Created: 2017/11/24 19:21:53 by alexis       #+#   ##    ##    #+#       */
-/*   Updated: 2017/12/09 15:59:20 by aviscogl    ###    #+. /#+    ###.fr     */
+/*   Created: 2017/12/14 09:55:59 by aviscogl     #+#   ##    ##    #+#       */
+/*   Updated: 2018/01/02 12:59:11 by aviscogl    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
-#include <stdarg.h>
-#include <libft.h>
+#include "libft.h"
 
-int		print_str(int fd, char *p, va_list list)
+int		find_in_tab(char **t, char *arg)
 {
-	if ((*++p) == 's')
+	while (*t)
 	{
-		ft_putstr_fd(fd, va_arg(list, char *));
-		return (1);
+		if (ft_strequ(arg, *t))
+			return (1);
+		t++;
 	}
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: aviscogl <aviscogl@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2017/11/25 14:27:35 by aviscogl     #+#   ##    ##    #+#       */
-/*   Updated: 2017/12/09 14:28:37 by aviscogl    ###    #+. /#+    ###.fr     */
+/*   Updated: 2018/01/02 11:58:09 by aviscogl    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -16,7 +16,7 @@
 # include <unistd.h>
 # include <string.h>
 
-# define BUFF_SIZE 32 
+# define BUFF_SIZE 32
 
 size_t	ft_putstr_fd(int fd, char const *s);
 size_t	ft_putnstr_fd(int fd, char const *s, size_t n);

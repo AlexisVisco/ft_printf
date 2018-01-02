@@ -6,14 +6,14 @@
 /*   By: aviscogl <aviscogl@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2017/12/10 09:49:41 by aviscogl     #+#   ##    ##    #+#       */
-/*   Updated: 2017/12/10 09:49:45 by aviscogl    ###    #+. /#+    ###.fr     */
+/*   Updated: 2018/01/02 12:53:17 by aviscogl    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int				copyuntil(char **dst, char *src, char *er)
+static int		copyuntil(char **dst, char *src, char *er)
 {
 	int i;
 
@@ -33,7 +33,7 @@ static int				copyuntil(char **dst, char *src, char *er)
 	return (i);
 }
 
-static int				join_mem_buf(char **memorized, int fd, int *last, char *er)
+static int		join_mem_buf(char **memorized, int fd, int *last, char *er)
 {
 	char	buf[BUFF_SIZE + 1];
 	int		stream_size;

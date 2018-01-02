@@ -6,7 +6,7 @@
 /*   By: aviscogl <aviscogl@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2017/12/21 20:07:05 by aviscogl     #+#   ##    ##    #+#       */
-/*   Updated: 2017/12/28 00:07:17 by aviscogl    ###    #+. /#+    ###.fr     */
+/*   Updated: 2018/01/02 13:41:53 by aviscogl    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -15,8 +15,8 @@
 
 static int	core_pf(int fd, const char *format, va_list lst)
 {
-	char *dup_fmt;
-	int n;
+	char	*dup_fmt;
+	int		n;
 
 	dup_fmt = ft_strdup(format);
 	evaluator_core(&dup_fmt, lst);
@@ -25,20 +25,22 @@ static int	core_pf(int fd, const char *format, va_list lst)
 	return (n);
 }
 
-int		fpf(int fd, const char *format, ...)
+int			ft_dprintf(int fd, const char *format, ...)
 {
 	va_list	ap;
 	int		write;
+
 	va_start(ap, format);
 	write = core_pf(fd, format, ap);
 	va_end(ap);
 	return (write);
 }
 
-int		pf(const char *format, ...)
+int			ft_printf(const char *format, ...)
 {
 	va_list	ap;
 	int		write;
+
 	va_start(ap, format);
 	write = core_pf(1, format, ap);
 	va_end(ap);

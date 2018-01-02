@@ -6,7 +6,7 @@
 /*   By: aviscogl <aviscogl@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2017/11/25 14:38:52 by aviscogl     #+#   ##    ##    #+#       */
-/*   Updated: 2017/12/10 17:57:39 by aviscogl    ###    #+. /#+    ###.fr     */
+/*   Updated: 2018/01/02 13:06:53 by aviscogl    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -54,6 +54,12 @@ int		ft_strisdigit(const char *s);
 char	*ft_strbasename(const char *filename);
 int		ft_strstarts_with(const char *s, char c);
 int		ft_strends_with(const char *s, char c);
+char	*ft_strappend_at(int n, char *src, char *add);
+char	*ft_strappend_atc(int n, char *src, char c);
+char	*ft_strcat_ch(char *dest, const char c);
+char	*ft_strdel_at(char *str, int pos);
+char	*ft_strdel_all_from(char *str, int pos);
+char	*ft_strdel_all_from_to(char *str, int from, int to);
 
 int		ft_tolower(int c);
 int		ft_toupper(int c);
