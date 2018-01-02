@@ -1,7 +1,5 @@
 
 C_FILES = \
-main/main.c \
-\
 converter/c_intmax.c \
 converter/c_uintmax.c \
 converter/c_unicode.c \
@@ -42,8 +40,6 @@ parser/extract_width.c \
 parser/extractor.c \
 \
 util/ft_str_repeat.c \
-util/ft_strappend_at.c \
-util/ft_strcat_ch.c \
 util/ft_strrep_first_aft.c \
 util/unicode.c \
 \
@@ -52,8 +48,9 @@ debugger/print_fmt.c \
 printf.c
 
 
-PROJECT = ft_printf
+PROJECT = libftprintf.a
 NAME = $(PROJECT)
+NAME_LIB = $(PROJECT)
 CC = gcc 
 CFLAGS += -g
 
@@ -61,7 +58,7 @@ SRC_PATH = ./src/
 INC_PATH = ./includes/
 LIBFT_INCLUDES_PATH = ./libft/includes/
 OBJ_PATH = ./obj/
-OBJ_PATHS = main parser struct util debugger converter evaluator \
+OBJ_PATHS = parser struct util debugger converter evaluator \
 evaluator/eval_base evaluator/eval_char evaluator/eval_number \
 evaluator/eval_pointer evaluator/eval_string evaluator/eval_string/compute \
 evaluator/eval_base/compute evaluator/eval_number/compute \
@@ -85,14 +82,15 @@ $(OBJ_PATH)%.o: $(SRC_PATH)%.c
 
 $(NAME): $(OBJ)
 	@make make_libft
-	$(CC) -L$(LIBFT_PATH) -l$(LIBFT_BIN_NAME) $^ -o $(NAME)
+	@ar rc $(NAME_LIB) ./libft/libft.a $^
+	# $(CC) -L$(LIBFT_PATH) -l$(LIBFT_BIN_NAME) $^ -o $(NAME)
 
 clean:
 	@rm -rf $(OBJ_PATH)
 	@make -C libft/ clean
 
 fclean: clean
-	@rm -rf $(NAME)
+	@rm -rf $(NAME_LIB)
 	@make -C libft/ fclean
 
 re: fclean all

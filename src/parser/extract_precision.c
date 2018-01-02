@@ -6,7 +6,7 @@
 /*   By: aviscogl <aviscogl@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2017/12/20 14:29:42 by aviscogl     #+#   ##    ##    #+#       */
-/*   Updated: 2018/01/02 13:25:53 by aviscogl    ###    #+. /#+    ###.fr     */
+/*   Updated: 2018/01/02 13:48:04 by aviscogl    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -37,7 +37,7 @@ void		extract_precision(t_formatter *fmt, char **str)
 		return ;
 	}
 	if (!ft_isdigit(**str))
-		chil_fn();
+		child_fn(precision);
 	else
 	{
 		while (**str && ft_isdigit(**str))
