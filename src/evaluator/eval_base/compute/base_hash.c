@@ -6,7 +6,7 @@
 /*   By: aviscogl <aviscogl@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2017/12/27 10:51:33 by aviscogl     #+#   ##    ##    #+#       */
-/*   Updated: 2018/01/02 21:39:21 by aviscogl    ###    #+. /#+    ###.fr     */
+/*   Updated: 2018/01/03 13:50:34 by aviscogl    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -19,10 +19,11 @@ void	base_hash(t_formatter *t)
 	int		can_apply;
 
 	can_apply = ft_strlen(t->to_replace) > 0 && !ft_strequ(t->to_replace, "0");
-	if (can_apply) 
+	if (can_apply || 'p' == t->type)
 	{
 		if (ft_strchr("xXp", t->type))
-			str = ft_strappend_at(0, t->to_replace, t->type == 'X' ? "0X" : "0x");
+			str = ft_strappend_at(0, t->to_replace, t->type == 'X' ? "0X" :
+			"0x");
 		else if (ft_strchr("o", t->type))
 			str = ft_strappend_at(0, t->to_replace, "0");
 		free(t->to_replace);

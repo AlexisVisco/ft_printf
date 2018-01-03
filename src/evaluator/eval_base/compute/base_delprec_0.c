@@ -6,7 +6,7 @@
 /*   By: aviscogl <aviscogl@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2018/01/02 20:45:07 by aviscogl     #+#   ##    ##    #+#       */
-/*   Updated: 2018/01/02 20:49:37 by aviscogl    ###    #+. /#+    ###.fr     */
+/*   Updated: 2018/01/03 15:07:17 by aviscogl    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -17,6 +17,8 @@ void	base_delprec_0(t_formatter *t)
 {
 	char *str;
 
+	if (ft_strchr("oO", t->type) && ft_strchr(t->flags, '#'))
+		return ;
 	free(t->to_replace);
 	str = malloc(sizeof(char) * 1);
 	str[0] = 0;

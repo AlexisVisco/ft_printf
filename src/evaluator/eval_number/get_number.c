@@ -6,7 +6,7 @@
 /*   By: aviscogl <aviscogl@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2017/12/28 10:05:21 by aviscogl     #+#   ##    ##    #+#       */
-/*   Updated: 2018/01/02 13:33:53 by aviscogl    ###    #+. /#+    ###.fr     */
+/*   Updated: 2018/01/03 15:01:56 by aviscogl    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -18,7 +18,6 @@ void	get_number(t_formatter *t, va_list lst)
 	intmax_t	val;
 	char		*str;
 
-	fill_dyn_val(t, lst);
 	get_val(t, &val, lst);
 	free(t->to_replace);
 	str = malloc(sizeof(char) * 256);
@@ -32,7 +31,6 @@ void	get_unumber(t_formatter *t, va_list lst)
 	uintmax_t	val;
 	char		*str;
 
-	fill_dyn_val(t, lst);
 	get_uval(t, &val, lst);
 	free(t->to_replace);
 	str = malloc(sizeof(char) * 256);

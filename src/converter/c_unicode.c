@@ -6,7 +6,7 @@
 /*   By: aviscogl <aviscogl@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2017/12/25 21:23:03 by aviscogl     #+#   ##    ##    #+#       */
-/*   Updated: 2018/01/02 13:38:36 by aviscogl    ###    #+. /#+    ###.fr     */
+/*   Updated: 2018/01/03 16:18:15 by aviscogl    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -53,7 +53,7 @@ char	*ft_wstr_to_str(wchar_t *ws)
 	i = 0;
 	k = 0;
 	len = ft_byte_wstrlen(ws);
-	fresh = (char*)malloc(sizeof(char) * len);
+	fresh = (char*)malloc(sizeof(char) * (len + 1));
 	fresh[len] = '\0';
 	while (ws[k])
 	{

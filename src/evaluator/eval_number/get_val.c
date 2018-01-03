@@ -6,7 +6,7 @@
 /*   By: aviscogl <aviscogl@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2017/12/27 10:41:46 by aviscogl     #+#   ##    ##    #+#       */
-/*   Updated: 2018/01/02 13:34:07 by aviscogl    ###    #+. /#+    ###.fr     */
+/*   Updated: 2018/01/03 15:52:10 by aviscogl    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -24,9 +24,9 @@ void	get_val(t_formatter *t, intmax_t *val, va_list lst)
 	else if (ft_strequ(t->length, "ll"))
 		*val = (intmax_t)va_arg(lst, long long);
 	else if (ft_strequ(t->length, "h"))
-		*val = (intmax_t)(unsigned short)va_arg(lst, int);
+		*val = (intmax_t)(short)va_arg(lst, int);
 	else if (ft_strequ(t->length, "hh"))
-		*val = (intmax_t)(unsigned char)va_arg(lst, int);
+		*val = (intmax_t)(char)va_arg(lst, int);
 	else
 		*val = (intmax_t)va_arg(lst, int);
 }

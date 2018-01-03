@@ -6,7 +6,7 @@
 /*   By: aviscogl <aviscogl@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2017/12/21 20:18:01 by aviscogl     #+#   ##    ##    #+#       */
-/*   Updated: 2018/01/02 21:48:48 by aviscogl    ###    #+. /#+    ###.fr     */
+/*   Updated: 2018/01/03 15:02:33 by aviscogl    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -18,6 +18,8 @@ void	evaluate(char **str, void (*fn)(), t_formatter *fmt, va_list lst)
 	char *to_free;
 	char *tmp;
 
+	if (fmt->precision == -2 || fmt->width == -2)
+		fill_dyn_val(fmt, lst);
 	to_free = *str;
 	fn(fmt, lst);
 	tmp = ft_strrep_first_aft(fmt->full_formatter,
@@ -36,6 +38,8 @@ void	evaluator(char **str, t_formatter *fmt, va_list lst)
 		evaluate(str, get_char, fmt, lst);
 	else if (ft_strchr(BASE_SX, fmt->type))
 		evaluate(str, get_hex, fmt, lst);
+	else if (ft_strchr(BASE_SO, fmt->type))
+		evaluate(str, get_oct, fmt, lst);
 	else if (ft_strchr(NUMBER_INTS, fmt->type))
 		evaluate(str, get_number, fmt, lst);
 	else if (ft_strchr(NUMBER_UINTS, fmt->type))
