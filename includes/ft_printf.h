@@ -6,7 +6,7 @@
 /*   By: aviscogl <aviscogl@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2017/12/20 09:32:20 by aviscogl     #+#   ##    ##    #+#       */
-/*   Updated: 2018/01/02 20:50:43 by aviscogl    ###    #+. /#+    ###.fr     */
+/*   Updated: 2018/01/03 20:39:12 by aviscogl    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -34,6 +34,7 @@
 # define FLAGS			"#0-+ "
 # define LENGTH			"hljz"
 # define SYMBOL			'%'
+# define PRNT_NULL		"5DZ%^@%HP4"
 # define BASE			"0123456789abcdefghijklmnopqrstuvwxyz"
 # define BASE_CAPS		"0123456789ABCDEFGHIJKLMNOPQRSTUVWZYZ"
 
@@ -109,6 +110,7 @@ void			flush_formatter(t_formatter *t);
 ** UTIL
 */
 void			ft_str_repeat(char **str, char c, int n);
+int				strstr_i(const char *str, const char *query);
 char			*ft_str_repeatm(char c, int n);
 int				ft_wcharlen(wchar_t wchar);
 size_t			ft_byte_wstrlen(wchar_t *ws);

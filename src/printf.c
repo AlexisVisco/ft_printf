@@ -6,12 +6,29 @@
 /*   By: aviscogl <aviscogl@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2017/12/21 20:07:05 by aviscogl     #+#   ##    ##    #+#       */
-/*   Updated: 2018/01/02 13:41:53 by aviscogl    ###    #+. /#+    ###.fr     */
+/*   Updated: 2018/01/03 20:34:56 by aviscogl    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+
+static int	smart_printer(int fd, char *str, int ret)
+{
+	int next_null;
+
+	if (!str)
+		return (0);
+	next_null = strstr_i(str, PRNT_NULL);
+	if (next_null == -1)
+	{
+		ret += write(fd, str, ft_strlen(str));
+		return (ret);
+	}
+	ret += write(fd, str, next_null);
+	ret += write(fd, "\0", 1);
+	return (smart_printer(fd, str + (next_null + ft_strlen(PRNT_NULL)), ret));
+}
 
 static int	core_pf(int fd, const char *format, va_list lst)
 {
@@ -20,10 +37,11 @@ static int	core_pf(int fd, const char *format, va_list lst)
 
 	dup_fmt = ft_strdup(format);
 	evaluator_core(&dup_fmt, lst);
-	n = (write(fd, dup_fmt, ft_strlen(dup_fmt)));
+	//n = (write(fd, dup_fmt, ft_strlen(dup_fmt)));
+	n = smart_printer(fd, dup_fmt, 0);
 	free(dup_fmt);
 	return (n);
-}
+}	
 
 int			ft_dprintf(int fd, const char *format, ...)
 {

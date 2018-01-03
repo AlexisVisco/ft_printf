@@ -6,7 +6,7 @@
 /*   By: aviscogl <aviscogl@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2017/12/21 12:43:36 by aviscogl     #+#   ##    ##    #+#       */
-/*   Updated: 2018/01/03 13:35:13 by aviscogl    ###    #+. /#+    ###.fr     */
+/*   Updated: 2018/01/03 19:09:40 by aviscogl    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -34,7 +34,7 @@ static int		is_query_i(const char *query, const char *str, int index)
 	return (0);
 }
 
-static int		strstr_i(const char *str, const char *query)
+int		strstr_i(const char *str, const char *query)
 {
 	int i;
 
