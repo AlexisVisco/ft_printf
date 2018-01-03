@@ -6,7 +6,7 @@
 /*   By: aviscogl <aviscogl@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2017/12/28 10:08:12 by aviscogl     #+#   ##    ##    #+#       */
-/*   Updated: 2018/01/03 15:37:37 by aviscogl    ###    #+. /#+    ###.fr     */
+/*   Updated: 2018/01/03 21:29:20 by aviscogl    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -28,10 +28,10 @@ void	number_compute(t_formatter *t)
 		base_delprec_0(t);
 	if (has_precision)
 		number_precision(t);
-	if (ft_strchr(t->flags, ' ') && !is_unsigned && !ft_strchr(t->flags, '+'))
-		number_space(t);
 	if (N_HAS_ZERO)
 		number_zero(t);
+	if (ft_strchr(t->flags, ' ') && !is_unsigned && !ft_strchr(t->flags, '+'))
+		number_space(t);
 	if (ft_strchr(t->flags, '+') && !is_unsigned)
 		number_plus(t);
 	if ((!N_HAS_ZERO || ft_strchr(t->flags, '-')))

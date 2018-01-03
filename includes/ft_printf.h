@@ -6,7 +6,7 @@
 /*   By: aviscogl <aviscogl@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2017/12/20 09:32:20 by aviscogl     #+#   ##    ##    #+#       */
-/*   Updated: 2018/01/03 20:39:12 by aviscogl    ###    #+. /#+    ###.fr     */
+/*   Updated: 2018/01/03 21:35:15 by aviscogl    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -58,6 +58,7 @@ typedef struct	s_formatter
 */
 void			str_compute(t_formatter *t);
 void			str_precision(t_formatter *t);
+void			str_delprec_0(t_formatter *t);
 void			wstr_precision(wchar_t **w, t_formatter *t);
 void			str_padding(t_formatter *t);
 

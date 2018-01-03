@@ -6,7 +6,7 @@
 /*   By: aviscogl <aviscogl@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2017/12/23 15:11:01 by aviscogl     #+#   ##    ##    #+#       */
-/*   Updated: 2018/01/03 20:51:55 by aviscogl    ###    #+. /#+    ###.fr     */
+/*   Updated: 2018/01/03 21:30:11 by aviscogl    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -22,6 +22,8 @@ void	str_padding(t_formatter *t)
 
 	is_left = ft_strchr(t->flags, '-') != NULL;
 	diff = t->width - ft_strlen(t->to_replace);
+	if (diff <= 0)
+		return ;
 	to_add = (char *)malloc(sizeof(char) * (diff + 1));
 	to_add[diff] = 0;
 	ft_str_repeat(&to_add, ' ', diff);

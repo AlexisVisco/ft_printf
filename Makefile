@@ -8,6 +8,7 @@ struct/formatter.c \
 \
 evaluator/eval_string/compute/str_compute.c \
 evaluator/eval_string/compute/str_padding.c \
+evaluator/eval_string/compute/str_delprec_0.c \
 evaluator/eval_string/compute/str_precision.c \
 evaluator/eval_string/compute/wstr_precision.c \
 evaluator/eval_string/get_string.c \
