@@ -6,7 +6,7 @@
 /*   By: aviscogl <aviscogl@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2017/12/23 14:53:34 by aviscogl     #+#   ##    ##    #+#       */
-/*   Updated: 2018/01/03 21:35:57 by aviscogl    ###    #+. /#+    ###.fr     */
+/*   Updated: 2018/01/03 22:00:34 by aviscogl    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -15,7 +15,7 @@
 
 void	str_compute(t_formatter *t)
 {
-	if (t->precision == 0)
+	if (t->precision == 0 && !t->non_spec_arg)
 		str_delprec_0(t);
 	if (t->precision > 0 && ft_strlen(t->to_replace) > t->precision)
 		str_precision(t);
