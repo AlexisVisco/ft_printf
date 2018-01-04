@@ -6,7 +6,7 @@
 /*   By: aviscogl <aviscogl@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2017/12/27 11:01:09 by aviscogl     #+#   ##    ##    #+#       */
-/*   Updated: 2018/01/03 21:28:09 by aviscogl    ###    #+. /#+    ###.fr     */
+/*   Updated: 2018/01/04 11:10:00 by aviscogl    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -20,7 +20,8 @@ void	number_zero(t_formatter *t)
 	int		diff;
 
 	diff = t->width - ft_strlen(t->to_replace);
-	if ((ft_strchr(t->flags, '+') || ft_strchr(t->flags, ' ')) && t->to_replace[0] != '-')
+	if ((ft_strchr(t->flags, '+') || ft_strchr(t->flags, ' ')) &&
+	t->to_replace[0] != '-')
 		diff -= diff == 0 ? 0 : 1;
 	if (diff <= 0)
 		return ;

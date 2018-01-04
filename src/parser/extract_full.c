@@ -6,14 +6,23 @@
 /*   By: aviscogl <aviscogl@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2017/12/20 12:52:59 by aviscogl     #+#   ##    ##    #+#       */
-/*   Updated: 2018/01/02 13:22:04 by aviscogl    ###    #+. /#+    ###.fr     */
+/*   Updated: 2018/01/04 11:05:33 by aviscogl    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int		extract_full(t_formatter *fmt, char *s)
+static void	if_null(t_formatter *fmt)
+{
+	if (fmt->type == 0)
+	{
+		fmt->type = 's';
+		fmt->full_formatter = ft_strdup("%");
+	}
+}
+
+int			extract_full(t_formatter *fmt, char *s)
 {
 	int i;
 
@@ -35,5 +44,6 @@ int		extract_full(t_formatter *fmt, char *s)
 		}
 		i++;
 	}
+	if_null(fmt);
 	return (i + 1);
 }

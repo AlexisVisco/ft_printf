@@ -6,7 +6,7 @@
 /*   By: aviscogl <aviscogl@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2017/12/27 11:15:54 by aviscogl     #+#   ##    ##    #+#       */
-/*   Updated: 2018/01/03 15:16:52 by aviscogl    ###    #+. /#+    ###.fr     */
+/*   Updated: 2018/01/04 13:35:14 by aviscogl    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -23,10 +23,10 @@ void	base_compute(t_formatter *t)
 	has_prec = (t->precision >= 0 && t->precision > ft_strlen(t->to_replace));
 	if (t->precision == 0 && ft_strequ(t->to_replace, "0"))
 		base_delprec_0(t);
-	if (has_prec)
-		number_precision(t);
 	if (ft_strchr(t->flags, '#'))
 		base_hash(t);
+	if (has_prec)
+		number_precision(t);
 	if (B_HAS_ZERO)
 		base_zero(t);
 	if ((!B_HAS_ZERO || ft_strchr(t->flags, '-')))

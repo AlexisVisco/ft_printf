@@ -6,7 +6,7 @@
 /*   By: aviscogl <aviscogl@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2017/12/21 20:18:01 by aviscogl     #+#   ##    ##    #+#       */
-/*   Updated: 2018/01/03 15:02:33 by aviscogl    ###    #+. /#+    ###.fr     */
+/*   Updated: 2018/01/04 11:31:10 by aviscogl    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -24,9 +24,7 @@ void	evaluate(char **str, void (*fn)(), t_formatter *fmt, va_list lst)
 	fn(fmt, lst);
 	tmp = ft_strrep_first_aft(fmt->full_formatter,
 	fmt->to_replace, *str, fmt->index);
-	fflush(stdout);
 	fmt->index_replace_end = fmt->index + ft_strlen(fmt->to_replace);
-	free(to_free);
 	str[0] = tmp;
 }
 

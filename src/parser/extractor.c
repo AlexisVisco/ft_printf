@@ -6,7 +6,7 @@
 /*   By: aviscogl <aviscogl@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2017/12/21 20:20:55 by aviscogl     #+#   ##    ##    #+#       */
-/*   Updated: 2017/12/25 11:22:00 by aviscogl    ###    #+. /#+    ###.fr     */
+/*   Updated: 2018/01/04 09:42:13 by aviscogl    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -15,6 +15,8 @@
 
 void	extract_params(t_formatter *fmt, char *full)
 {
+	if (!full)
+		return ;
 	while (*full)
 	{
 		if (ft_strchr(FLAGS, *full))

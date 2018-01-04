@@ -6,7 +6,7 @@
 /*   By: aviscogl <aviscogl@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2017/12/20 09:32:20 by aviscogl     #+#   ##    ##    #+#       */
-/*   Updated: 2018/01/03 21:35:15 by aviscogl    ###    #+. /#+    ###.fr     */
+/*   Updated: 2018/01/04 10:53:47 by aviscogl    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -111,7 +111,7 @@ void			flush_formatter(t_formatter *t);
 ** UTIL
 */
 void			ft_str_repeat(char **str, char c, int n);
-int				strstr_i(const char *str, const char *query);
+int				strstr_i(const char *str, const char *query, int after);
 char			*ft_str_repeatm(char c, int n);
 int				ft_wcharlen(wchar_t wchar);
 size_t			ft_byte_wstrlen(wchar_t *ws);

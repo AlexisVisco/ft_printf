@@ -6,7 +6,7 @@
 /*   By: aviscogl <aviscogl@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2017/12/21 12:43:36 by aviscogl     #+#   ##    ##    #+#       */
-/*   Updated: 2018/01/03 19:09:40 by aviscogl    ###    #+. /#+    ###.fr     */
+/*   Updated: 2018/01/04 10:54:34 by aviscogl    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -34,7 +34,7 @@ static int		is_query_i(const char *query, const char *str, int index)
 	return (0);
 }
 
-int		strstr_i(const char *str, const char *query)
+int		strstr_i(const char *str, const char *query, int after)
 {
 	int i;
 
@@ -43,7 +43,7 @@ int		strstr_i(const char *str, const char *query)
 		return (-1);
 	while (str[i])
 	{
-		if (str[i] == query[0])
+		if (str[i] == query[0] && i >= after)
 		{
 			if (is_query_i(query, str, i))
 				return (i);
@@ -91,9 +91,13 @@ char *replace, char *subject, int n)
 		return (NULL);
 	if (ft_strstr(subject, search) != NULL)
 	{
-		index = strstr_i(subject, search);
+		index = strstr_i(subject, search, n);
 		if (index < n)
+		{
+			printf("hwloo\n");
+			fflush(stdout);
 			return (NULL);
+		}
 		if (index == 0)
 		{
 			str = ft_strsub(subject, ft_strlen(search), (ft_strlen(subject) -
