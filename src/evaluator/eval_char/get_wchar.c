@@ -6,7 +6,7 @@
 /*   By: aviscogl <aviscogl@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2017/12/26 19:44:15 by aviscogl     #+#   ##    ##    #+#       */
-/*   Updated: 2018/01/04 14:46:12 by aviscogl    ###    #+. /#+    ###.fr     */
+/*   Updated: 2018/01/04 14:59:09 by aviscogl    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -32,7 +32,6 @@ void			get_wchar(t_formatter *t, va_list lst)
 	wchar_t	arg;
 	char	*str;
 
-	str = get_wchar_st(arg, t);
 	arg = va_arg(lst, wchar_t);
 	str = get_wchar_st(arg, t);
 	free(t->to_replace);
