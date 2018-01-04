@@ -6,7 +6,7 @@
 /*   By: aviscogl <aviscogl@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2017/12/23 14:50:57 by aviscogl     #+#   ##    ##    #+#       */
-/*   Updated: 2018/01/04 13:23:31 by aviscogl    ###    #+. /#+    ###.fr     */
+/*   Updated: 2018/01/04 14:24:29 by aviscogl    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -24,7 +24,7 @@ void	get_wstring(t_formatter *t, va_list lst)
 	arg = va_arg(lst, wchar_t *);
 	if (!arg)
 		return ;
-	if (t->precision > 0 && ft_byte_wstrlen(arg) > t->precision ||
+	if ((t->precision > 0 && ft_byte_wstrlen(arg) > t->precision) ||
 	t->precision == 0)
 	{
 		wstr_precision(&arg, t);

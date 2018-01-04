@@ -45,8 +45,6 @@ util/ft_str_repeat.c \
 util/ft_strrep_first_aft.c \
 util/unicode.c \
 \
-debugger/print_fmt.c \
-\
 printf.c
 
 
@@ -60,7 +58,7 @@ SRC_PATH = ./src/
 INC_PATH = ./includes/
 LIBFT_INCLUDES_PATH = ./libft/includes/
 OBJ_PATH = ./obj/
-OBJ_PATHS = parser struct util debugger converter evaluator \
+OBJ_PATHS = parser struct util converter evaluator \
 evaluator/eval_base evaluator/eval_char evaluator/eval_number \
 evaluator/eval_pointer evaluator/eval_string evaluator/eval_string/compute \
 evaluator/eval_base/compute evaluator/eval_number/compute \

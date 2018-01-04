@@ -6,7 +6,7 @@
 /*   By: aviscogl <aviscogl@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2017/12/26 19:40:35 by aviscogl     #+#   ##    ##    #+#       */
-/*   Updated: 2018/01/04 14:11:03 by aviscogl    ###    #+. /#+    ###.fr     */
+/*   Updated: 2018/01/04 14:26:54 by aviscogl    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -32,7 +32,7 @@ static void		char_pad_null(int w, t_formatter *t)
 
 	str = ft_str_repeatm(ft_strchr(t->flags, '0') ? '0' : ' ', w - 1);
 	strn = ft_strappend_at(ft_strchr(t->flags, '-') ? ft_strlen(t->to_replace)
-	: 0,t->to_replace, str);
+	: 0, t->to_replace, str);
 	free(str);
 	free(t->to_replace);
 	t->to_replace = strn;
