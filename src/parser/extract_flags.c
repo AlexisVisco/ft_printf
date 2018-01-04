@@ -6,7 +6,7 @@
 /*   By: aviscogl <aviscogl@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2017/12/20 13:03:49 by aviscogl     #+#   ##    ##    #+#       */
-/*   Updated: 2018/01/02 13:22:01 by aviscogl    ###    #+. /#+    ###.fr     */
+/*   Updated: 2018/01/04 14:31:28 by aviscogl    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -15,7 +15,6 @@
 
 void	extract_flags(t_formatter *fmt, char **str)
 {
-	fflush(stdout);
 	if (ft_strchr(FLAGS, **str) && !ft_strchr(fmt->flags, **str))
 		ft_strcat_ch(fmt->flags, **str);
 	(*str)++;

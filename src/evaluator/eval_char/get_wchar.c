@@ -6,7 +6,7 @@
 /*   By: aviscogl <aviscogl@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2017/12/26 19:44:15 by aviscogl     #+#   ##    ##    #+#       */
-/*   Updated: 2018/01/04 14:25:58 by aviscogl    ###    #+. /#+    ###.fr     */
+/*   Updated: 2018/01/04 14:46:12 by aviscogl    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -20,7 +20,6 @@ static char		*get_wchar_st(wchar_t arg, t_formatter *t)
 
 	if (arg == 0)
 		return (ft_strdup(PRNT_NULL));
-	str = malloc(sizeof(char) * (2));
 	len = ft_wcharlen(arg);
 	str = (char *)malloc(sizeof(char) * (len + 1));
 	str[len] = 0;
